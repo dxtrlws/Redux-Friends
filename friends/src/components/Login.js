@@ -17,13 +17,18 @@ class Login extends Component {
       [e.target.name]: e.target.value
     });
   };
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault();
     const credentials = {
       username: this.state.username,
       password: this.state.password
     };
-
-    this.props.login(credentials);
+    this.props.login(credentials)
+    .then(this.props.history.push('/'));
+    this.setState({
+        username: '',
+        password:''
+    })
   };
   render() {
     console.log(this.props);
@@ -46,7 +51,7 @@ class Login extends Component {
             margin='normal'
             type='password'
           />
-          <Button>Submit</Button>
+          <Button onClick={this.handleSubmit}>Submit</Button>
         </form>
       </Grid>
     );
