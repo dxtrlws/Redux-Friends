@@ -2,7 +2,8 @@ import {
   LOGIN_START,
   LOGIN_RESOLVED,
   FETCHING_FRIENDS,
-  FETCHING_FRIENDS_START
+  FETCHING_FRIENDS_START,
+  FETCHING_FRIENDS_ERROR
 } from '../actions';
 
 const initialState = {
@@ -27,18 +28,23 @@ export const reducer = (state = initialState, action) => {
         ...state,
         logginIn: false
       };
-      case FETCHING_FRIENDS_START:
+    case FETCHING_FRIENDS_START:
       return {
-          ...state,
-          fetchingFriends: true
-      }
-      case FETCHING_FRIENDS:
+        ...state,
+        fetchingFriends: true
+      };
+    case FETCHING_FRIENDS:
       return {
-          ...state,
-          fetchingFriends: false,
-          friends: action.payload
-      }
-
+        ...state,
+        fetchingFriends: false,
+        friends: action.payload
+      };
+    case FETCHING_FRIENDS_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        fetchingFriends: false
+      };
     default:
       return state;
   }

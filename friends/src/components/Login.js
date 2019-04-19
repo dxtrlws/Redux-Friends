@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions';
-import { TextField, Button, Grid } from '@material-ui/core';
+import { TextField, Button, Grid, Paper, Typography } from '@material-ui/core';
 
 class Login extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Login extends Component {
       password: this.state.password
     };
     this.props.login(credentials)
-    .then(this.props.history.push('/'));
+    .then(this.props.history.push('/friends'));
     this.setState({
         username: '',
         password:''
@@ -34,7 +34,10 @@ class Login extends Component {
     console.log(this.props);
     return (
       <Grid container justify='center'>
+      <Paper className="paper">
+      
         <form onSubmit={this.handleSubmit}>
+        <Typography variant="h4">Login</Typography>
           <TextField
             label='Name'
             name='username'
@@ -51,8 +54,9 @@ class Login extends Component {
             margin='normal'
             type='password'
           />
-          <Button onClick={this.handleSubmit}>Submit</Button>
+          <Button variant="contained" color="primary" style={{marginTop: 10}} onClick={this.handleSubmit}>Submit</Button>
         </form>
+        </Paper>
       </Grid>
     );
   }

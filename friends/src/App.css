@@ -1,6 +1,8 @@
-.App {
-  text-align: center;
+body {
+  background-color: #F5F5F5;
 }
+
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -30,4 +32,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.paper {
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
 }
