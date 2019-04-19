@@ -3,7 +3,10 @@ import {
   LOGIN_RESOLVED,
   FETCHING_FRIENDS,
   FETCHING_FRIENDS_START,
-  FETCHING_FRIENDS_ERROR
+  FETCHING_FRIENDS_ERROR,
+  POSTING_FRIEND_START,
+  POSTING_FRIEND,
+  POSTING_FRIEND_ERROR
 } from '../actions';
 
 const initialState = {
@@ -45,6 +48,23 @@ export const reducer = (state = initialState, action) => {
         error: action.payload,
         fetchingFriends: false
       };
+      case POSTING_FRIEND_START:
+      return {
+          ...state,
+          savingFriends: true
+      }
+      case POSTING_FRIEND:
+      return {
+          ...state,
+          savingFriends: false,
+          friends: [...state.friends, action.payload]
+      }
+      case POSTING_FRIEND_ERROR:
+      return {
+          ...state,
+          savingFriends: false,
+          error: action.payload
+      }
     default:
       return state;
   }

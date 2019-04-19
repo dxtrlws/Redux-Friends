@@ -41,6 +41,6 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
+ 
 }
