@@ -1,0 +1,2 @@
+get http://localhost:5000/api/friends 
+authorization: esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ
